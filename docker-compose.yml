@@ -1,0 +1,23 @@
+version: '3'
+
+services: 
+  application:
+    image: tara0674/ode:latest
+    ports: 
+      - "8080:8080"
+    environment:
+      host: 'localhost'
+      user: 'root'
+      password: 'password'
+      database: 'students_records'
+    depends_on: 
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: students_records
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    ports:
+      - "3360:3306"
