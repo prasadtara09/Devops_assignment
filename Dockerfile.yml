@@ -1,7 +1,7 @@
 FROM node:12.2.0-alpine
-WORKDIR app
 COPY . .
-RUN apt-get update -y \
-   && apt install nodejs -y \
+RUN npm config set package-lock false 
+RUN npm install
 EXPOSE 8080
 CMD ["node","index.js"]
+~                        
